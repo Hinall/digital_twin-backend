@@ -66,6 +66,23 @@ public class PropertySurveyController {
 	
 	@Autowired
 	private Environment environment;
+	
+	
+	
+	
+	
+	// WRITE A USED API ABOVE THIS COMMENTS
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@ApiIgnore
 	@RequestMapping(value = "/get_all_layers", method = RequestMethod.GET)

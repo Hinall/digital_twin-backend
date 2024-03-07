@@ -57,6 +57,17 @@ public class CommonController {
 	
 	@Value("${image.CropImageFilePath}")
 	private String cropImageFilePath;
+	
+	
+	
+	
+	
+	
+	
+	
+	// WRITE A USED API ABOVE THIS COMMENTS
+	
+	
 
 	@RequestMapping(value = "/citizen/getVisitorCounter", method = RequestMethod.GET)
 	public ResponseEntity<String> getVisitorCounter() {

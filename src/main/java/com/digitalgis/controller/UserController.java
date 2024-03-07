@@ -98,6 +98,33 @@ public class UserController {
 	 * @throws JSONException
 	 */
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// WRITE A USED API ABOVE THIS COMMENTS
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@ApiIgnore
 	@ApiOperation(value = "User Login API which validates the and authenticates valid users through web")
 	@RequestMapping(value = "/weblogin", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")

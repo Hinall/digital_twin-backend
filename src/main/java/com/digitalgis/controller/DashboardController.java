@@ -27,6 +27,19 @@ public class DashboardController {
 	@Autowired
 	DashboardService dashService;
 	
+	
+	
+	
+	
+	
+	
+	// WRITE A USED API ABOVE THIS COMMENTS
+	
+	
+	
+	
+	
+	
 //	@RequestMapping(value = "/get_ward_data", method = RequestMethod.POST, produces = "application/json")
 //	public String getWardData(@RequestBody String json) throws JSONException {
 //
