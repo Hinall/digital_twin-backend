@@ -14,21 +14,6 @@ public class PropertySurveyServiceImpl implements PropertySurveyService {
 
 
 	@Override
-	public String getAllLayers() {
-		String resultJson = propertySurveyDao.getAllLayers();
-		if (resultJson != null && !resultJson.isEmpty()) {
-			try {
-				return resultJson;
-			} catch (Exception e) {
-				e.printStackTrace();
-				return null;
-			}
-		}
-		return null;
-	}
-
-
-	@Override
 	public String getVerifyFeatureData(String json) {
 		String resultJson = propertySurveyDao.getVerifyFeatureData(json);
 		if (resultJson != null && !resultJson.isEmpty()) {
@@ -371,6 +356,74 @@ public class PropertySurveyServiceImpl implements PropertySurveyService {
 		}
 		return null;
 	}
+	@Override
+	public String getAllLayers() {
+		String resultJson = propertySurveyDao.getAllLayers();
+		if (resultJson != null && !resultJson.isEmpty()) {
+			try {
+				return resultJson;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+		return null;
+	}
+	@Override
+	public String getAllStateName() {
+		String resultJson = propertySurveyDao.getAllStateName();
+		if (resultJson != null && !resultJson.isEmpty()) {
+			try {
+				return resultJson;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+		return null;
+	}
+	
+	@Override
+	public String getwardIdByStateName(String stateName) {
+		String resultJson = propertySurveyDao.getWardByStateName(stateName);
+		if (resultJson != null && !resultJson.isEmpty()) {
+			try {
+				return resultJson;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+		return null;
+	}
+	@Override
+	public String gridDataByWardId(String wardId) {
+		String resultJson = propertySurveyDao.gridDataByWardId(wardId);
+		if (resultJson != null && !resultJson.isEmpty()) {
+			try {
+				return resultJson;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+		return null;
+	}
+	@Override
+	public String getUrl(String Json) {
+		String resultJson = propertySurveyDao.getUrl(Json);
+		if (resultJson != null && !resultJson.isEmpty()) {
+			try {
+				return resultJson;
+			} catch (Exception e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+		return null;
+	}
+
+
 
 
 }

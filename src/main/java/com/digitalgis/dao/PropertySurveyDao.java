@@ -52,5 +52,13 @@ public interface PropertySurveyDao {
 	String insert_re_integration_data(String json);
 
 	String getREIntegrationData(String json);
+	
+	String getAllStateName();
+
+	String getWardByStateName(String stateName);
+
+	String gridDataByWardId(String stateName);
+
+	String getUrl(String Json);
 
 }

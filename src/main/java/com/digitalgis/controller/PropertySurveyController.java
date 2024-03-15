@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -629,5 +630,52 @@ public class PropertySurveyController {
 			return ResponseEntity.ok(CustomMessages.getMessage(CustomMessages.RESPONSE_MESSAGE_500));
 		}
 	}
+	
+	@ApiIgnore
+	@RequestMapping(value = "/get_state_name", method = RequestMethod.GET)
+	public ResponseEntity<?> getAllStateName(HttpServletRequest request) {
+		try {
+			String result = propertySurveyService.getAllStateName();
+			return ResponseEntity.ok(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok(CustomMessages.getMessage(CustomMessages.RESPONSE_MESSAGE_500));
+		}
+	}
+	
+	@ApiIgnore
+	@RequestMapping(value = "/get_ward_id/{state_name}", method = RequestMethod.POST)
+	public ResponseEntity<?> getWardIdByStateName(@PathVariable("state_name") String stateName ,HttpServletRequest request) {
+		try {
+			String result = propertySurveyService.getwardIdByStateName(stateName);
+			return ResponseEntity.ok(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok(CustomMessages.getMessage(CustomMessages.RESPONSE_MESSAGE_500));
+		}
+	}
+	@ApiIgnore
+	@RequestMapping(value = "/grid_data_by_ward/{wardId}", method = RequestMethod.POST)
+	public ResponseEntity<?> gridDataByWardId(@PathVariable("wardId") String wardId ,HttpServletRequest request) {
+		try {
+			String result = propertySurveyService.gridDataByWardId(wardId);
+			return ResponseEntity.ok(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok(CustomMessages.getMessage(CustomMessages.RESPONSE_MESSAGE_500));
+		}
+	}
+	@ApiIgnore
+	@RequestMapping(value = "/get_url", method = RequestMethod.POST)
+	public ResponseEntity<?> getUrl(@RequestBody String reqJson,HttpServletRequest request) {
+		try {
+			String result = propertySurveyService.getUrl(reqJson);
+			return ResponseEntity.ok(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok(CustomMessages.getMessage(CustomMessages.RESPONSE_MESSAGE_500));
+		}
+	}
+	
 	
 }

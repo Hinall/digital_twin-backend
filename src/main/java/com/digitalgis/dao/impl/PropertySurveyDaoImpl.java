@@ -357,4 +357,59 @@ public class PropertySurveyDaoImpl extends JdbcDaoSupport implements PropertySur
 		}
 	}
 
+	@Override
+	public String getAllStateName() {
+		String result;
+		try {
+			result = jdbcTemplate.queryForObject(SPUtility.FN_GET_STATE_NAME, new Object[] { },
+					String.class);
+			return result;
+		} catch (Exception e) {
+			LoggerUtil.setError(this.getClass(), "Error in PropertySurveyDaoImpl :: getAllStateName()");
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
+	public String getWardByStateName(String stateName) {
+		String result;
+		try {
+			result = jdbcTemplate.queryForObject(SPUtility.FN_GET_WARD_ID, new Object[] {stateName},
+					String.class);
+			return result;
+		} catch (Exception e) {
+			LoggerUtil.setError(this.getClass(), "Error in PropertySurveyDaoImpl :: getWardByStateName()");
+			e.printStackTrace();
+			return null;
+		}
+	}
+	@Override
+	public String gridDataByWardId(String wardId) {
+		String result;
+		try {
+			result = jdbcTemplate.queryForObject(SPUtility.FN_WEB_GET_RETMS_DASHBOARD_GRID_DATA_BY_WARD_ID, new Object[] {wardId},
+					String.class);
+			return result;
+		} catch (Exception e) {
+			LoggerUtil.setError(this.getClass(), "Error in PropertySurveyDaoImpl :: getWardByStateName()");
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	@Override
+	public String getUrl(String Json) {
+		String result;
+		try {
+			result = jdbcTemplate.queryForObject(SPUtility.FN_GET_URL, new Object[] {Json},
+					String.class);
+			return result;
+		} catch (Exception e) {
+			LoggerUtil.setError(this.getClass(), "Error in PropertySurveyDaoImpl :: getUrl()");
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }

@@ -127,4 +127,14 @@ public class SPUtility {
 	public static final String FN_WEB_GET_RETMS_CHART_DATA = "SELECT public.fn_web_get_retms_chart_data(?)";
 	
 	public static final String FN_WEB_GET_RETMS_DASHBOARD_GRID_DATA = "SELECT public.fn_web_get_retms_dashboard_grid_data(?)";
+	
+	public static final String FN_GET_STATE_NAME= "SELECT public.fn_get_state_name()";
+	
+	public static final String FN_GET_WARD_ID= "SELECT public.fn_get_ward_id(?)";	
+	
+	public static final String FN_WEB_GET_RETMS_DASHBOARD_GRID_DATA_BY_WARD_ID= "SELECT public.fn_web_get_retms_dashboard_grid_data_by_wardId(?)";	
+
+	public static final String FN_GET_URL= "SELECT public.fn_get_url(?,?)";	
+
+
 }

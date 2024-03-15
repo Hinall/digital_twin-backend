@@ -52,5 +52,13 @@ public interface PropertySurveyService {
 	String insert_re_integration_data(String json);
 
 	String getREIntegrationData(String reqJson);
+
+	String getAllStateName();
+
+	String getwardIdByStateName(String stateName);
+
+	String gridDataByWardId(String wardId);
+
+	String getUrl(String Json);
 	
 }
