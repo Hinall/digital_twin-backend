@@ -138,7 +138,52 @@ public class DashboardController {
 		}
 	}
 	
-	  @RequestMapping(value = "/upload_files", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+//	  @RequestMapping(value = "/upload_files", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+//	    public ResponseEntity<?> addfile(
+//	            @RequestParam(value = "images", required = false) MultipartFile[] images,
+//	            @RequestParam(value = "documents", required = false) MultipartFile[] documents,
+//	            @RequestParam(value = "folderName", required = true) String folderName,
+//	            HttpServletRequest httpServletRequest,
+//	            HttpServletResponse httpServletResponse) {
+//
+//	        String imageDirectory = "D:/Amnex/digital_twin-Angular/digital_twin_frontend/src/app/demo/project-management/images";
+//	        String documentDirectory = "D:/Amnex/digital_twin-Angular/digital_twin_frontend/src/app/demo/project-management/documents";
+//
+//	        try {
+//	            // Process uploaded images
+//	            if (images != null) {
+//	                for (MultipartFile file : images) {
+//	                    saveFile(file, imageDirectory);
+//	                }
+//	            }
+//
+//	            // Process uploaded documents
+//	            if (documents != null) {
+//	                for (MultipartFile file : documents) {
+//	                    saveFile(file, documentDirectory);
+//	                }
+//	            }
+//
+//	        } catch (IOException e) {
+//	            e.printStackTrace();
+//	            return ResponseEntity.status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR)
+//	                    .body("Error occurred while uploading files: " + e.getMessage());
+//	        }
+//
+//	        return ResponseEntity.ok("Files uploaded successfully.");
+//	    }
+////save
+//	    private void saveFile(MultipartFile file, String directory) throws IOException {
+//	        String filename = file.getOriginalFilename();
+//	        File dir = new File(directory);
+//	        if (!dir.exists()) {
+//	            dir.mkdirs();
+//	        }
+//	        Path filePath = Paths.get(directory, filename);
+//	        Files.delete(filePath);
+//	    }
+	
+	   @RequestMapping(value = "/upload_files", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	    public ResponseEntity<?> addfile(
 	            @RequestParam(value = "images", required = false) MultipartFile[] images,
 	            @RequestParam(value = "documents", required = false) MultipartFile[] documents,
@@ -172,7 +217,8 @@ public class DashboardController {
 
 	        return ResponseEntity.ok("Files uploaded successfully.");
 	    }
-//save
+
+	    // Save file method
 	    private void saveFile(MultipartFile file, String directory) throws IOException {
 	        String filename = file.getOriginalFilename();
 	        File dir = new File(directory);
@@ -180,7 +226,35 @@ public class DashboardController {
 	            dir.mkdirs();
 	        }
 	        Path filePath = Paths.get(directory, filename);
-	        Files.delete(filePath);
+
+	        // Check if file exists and generate a unique filename if it does
+	        if (Files.exists(filePath)) {
+	            filePath = getUniqueFilePath(directory, filename);
+	        }
+
+	        // Save the file
+	        Files.copy(file.getInputStream(), filePath);
+	    }
+
+	    // Generate a unique file path
+	    private Path getUniqueFilePath(String directory, String filename) {
+	        String name = filename;
+	        String extension = "";
+
+	        int dotIndex = filename.lastIndexOf(".");
+	        if (dotIndex > 0) {
+	            name = filename.substring(0, dotIndex);
+	            extension = filename.substring(dotIndex);
+	        }
+
+	        int counter = 1;
+	        Path filePath;
+	        do {
+	            filePath = Paths.get(directory, name + "_" + counter + extension);
+	            counter++;
+	        } while (Files.exists(filePath));
+
+	        return filePath;
 	    }
 
 
@@ -361,7 +435,7 @@ public class DashboardController {
 	}
 	
 	@ApiIgnore
-	@RequestMapping(value = "/get_role_by_id", method = RequestMethod.GET)
+	@RequestMapping(value = "/get_role_by_id", method = RequestMethod.POST)
 	public ResponseEntity<?> getRoleById(@RequestBody String json, HttpServletRequest request ) {
 		try {
 			String result = dashService.getRoleById(json);
