@@ -55,6 +55,7 @@ public class CommonController {
 	@Value("${image.FilePath}")
 	private String imageFilePath;
 	
+	
 	@Value("${image.CropImageFilePath}")
 	private String cropImageFilePath;
 	
@@ -334,5 +335,16 @@ public class CommonController {
 		}
 		return new ResponseEntity<Response<String>>(respose, HttpStatus.ACCEPTED);
 	}
-	
+
+@ApiIgnore
+@RequestMapping(value = "/get_layer_panel", method = RequestMethod.POST)
+public ResponseEntity<?> getStateDetailByID(@RequestBody String json,HttpServletRequest request) {
+	try {
+		String result = commonService.getStateDetailByID(json);
+		return ResponseEntity.ok(result);
+	} catch (Exception e) {
+		e.printStackTrace();
+		return ResponseEntity.ok(CustomMessages.getMessage(CustomMessages.RESPONSE_MESSAGE_500));
+	}
+}
 }

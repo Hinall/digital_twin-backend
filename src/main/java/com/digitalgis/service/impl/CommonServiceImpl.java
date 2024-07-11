@@ -99,5 +99,12 @@ public class CommonServiceImpl implements CommonService {
 	public String getInformationofLayer(String json) throws JSONException {
 		return commonDao.getInformationofLayer(json);
 	}
+	
+	@Override
+	public String getStateDetailByID(String json) throws JSONException {
+		return commonDao.getStateDetailByID(json);
+	}
+
+	
 
 }

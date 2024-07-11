@@ -410,8 +410,8 @@ public class PropertySurveyServiceImpl implements PropertySurveyService {
 		return null;
 	}
 	@Override
-	public String getUrl(String Json) {
-		String resultJson = propertySurveyDao.getUrl(Json);
+	public String getStateDetails(String json) {
+		String resultJson = propertySurveyDao.getStateDetails(json);
 		if (resultJson != null && !resultJson.isEmpty()) {
 			try {
 				return resultJson;
@@ -420,6 +420,13 @@ public class PropertySurveyServiceImpl implements PropertySurveyService {
 				return null;
 			}
 		}
+		return null;
+	}
+
+
+	@Override
+	public String getUrl(String Json) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

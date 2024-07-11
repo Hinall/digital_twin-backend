@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.cors().and().csrf().disable()
 			.authorizeRequests()
 //			.antMatchers("/signup").permitAll()
-				.antMatchers("/login","/registeruser", "/getImage/**","/getBuildingImage/**", "/getUserSignatureImage/**" ,"/weblogin/**","/generateAnnexure/**","/storeTemporaryPassword/**","/updateWebUserPassword/**","/send_OTP/**","/verify_otp/**","/reset_pasword/**","/get_user_id_by_mail/**","/insertVisitorCount/**","/getcaptcha/**","/verify_captcha/**","/download_file/**","/register_web_user/**").permitAll()
+	.antMatchers("add_update_role","/login","/role_management","/registeruser", "/getImage/**","/getBuildingImage/**", "/getUserSignatureImage/**" ,"/weblogin/**","/generateAnnexure/**","/storeTemporaryPassword/**","/updateWebUserPassword/**","/send_OTP/**","/verify_otp/**","/reset_pasword/**","/get_user_id_by_mail/**","/insertVisitorCount/**","/getcaptcha/**","/verify_captcha/**","/download_file/**","/register_web_user/**","/crud_user_management/**","/get_all_role/**","/get_all_layer_and_image/**","/dashboard/**","/digitaltwin/**","/getUserDetailsById/**","/getRollDetailsById/{roll_id}/**").permitAll()
 //			.antMatchers("/forgotpassword").permitAll()
 //			.antMatchers("/resetPasswordForForgot").permitAll()
 //			.antMatchers("/file/**").permitAll()

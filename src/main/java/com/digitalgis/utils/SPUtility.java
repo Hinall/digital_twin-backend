@@ -35,7 +35,7 @@ public class SPUtility {
 	
 	public final static String FN_WEB_CRUD_ROLE_MANAGEMENT = "SELECT public.fn_web_add_or_update_role(?)";
 	
-	public final static String FN_WEB_GET_ALL_ROLE = "SELECT public.fn_web_get_all_role(?)";
+	public final static String FN_WEB_GET_ALL_ROLE = "SELECT public.fn_web_get_all_role()";
 	
 	public final static String FN_WEB_DELETE_ROLE = "SELECT public.fn_web_delete_role(?)";
 	
@@ -134,7 +134,48 @@ public class SPUtility {
 	
 	public static final String FN_WEB_GET_RETMS_DASHBOARD_GRID_DATA_BY_WARD_ID= "SELECT public.fn_web_get_retms_dashboard_grid_data_by_wardId(?)";	
 
-	public static final String FN_GET_URL= "SELECT public.fn_get_url(?,?)";	
+	public static final String FN_GET_URL= "SELECT public.fn_get_url(?)";	
+	
+	public static final String FN_GET_STATE_DETAILS= "SELECT public.fn_get_state_details(?)";
+	
+	public static final String FN_GET_ALL_MODULES= "SELECT public.fn_web_get_all_module()";
+	
+	public static final String FN_GET_ROLE_BY_ROLEID= "select fn_web_get_all_role_by_id(?);";
+	
+	public static final String FN_get_State_Detail_By_ID= "select fn_web_get_all_layer_by_state(?);";
+	
+	public static final String FN_WEB_CRUD_PROJECT_DETAILS= "select fn_web_crud_project_details(?);";
+	
+	public static final String FN_WEB_CRUD_MILESTONE_DETAILS= "select fn_web_crud_milestone_details(?);";
+	
+	public static final String FN_GET_STATUS_LIST= "select fn_get_status_list();";
+	
+	public static final String FN_WEB_CRUD_ANNOUNCEMENT_MANAGEMENT= "select fn_web_crud_announcement_management(?);";
+	
+	public static final String FN_WEB_GET_ROLEID_BY_USERNAME= "select fn_web_get_roleid_by_username(?);";
+
+	public static final String FN_WEB_GET_ROLE_LIST= "select fn_web_get_role_list();";
+	
+	public static final String FN_WEB_SEARCH_LAYER= "select fn_web_search_layer(?);";
+	
+	public static final String FN_WEB_GET_POINT_LAYER= "select fn_web_get_point_layer_data();"; //6/17/24
+	
+	public static final String FN_WEB_ADD_UPDATE_STREETLIGHT_ARMS= "select fn_web_add_update_streetlight_arms(?);"; //2/7/24
+	
+	public static final String FN_WEB_DELETE_STREETLIGHT_ARMS= "select fn_web_delete_streetlight_arms(?);"; //2/7/24
+
+
+
+
+
+
+
+
+
+
+	
+	
+
 
 
 }

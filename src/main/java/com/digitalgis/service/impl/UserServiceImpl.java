@@ -204,8 +204,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public String get_all_role(String json) {
-		String resultJson = userDao.get_all_role(json);
+	public String get_all_role() {
+		String resultJson = userDao.get_all_role();
 		if (resultJson != null && !resultJson.isEmpty()) {
 			try {
 				return resultJson;

@@ -677,5 +677,17 @@ public class PropertySurveyController {
 		}
 	}
 	
+	@ApiIgnore
+	@RequestMapping(value = "/get_state_details", method = RequestMethod.POST)
+	public ResponseEntity<?> getStateDetails(@RequestBody String reqJson,HttpServletRequest request) {
+		try {
+			String result = propertySurveyService.getStateDetails(reqJson);
+			return ResponseEntity.ok(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.ok(CustomMessages.getMessage(CustomMessages.RESPONSE_MESSAGE_500));
+		}
+	}
+	
 	
 }

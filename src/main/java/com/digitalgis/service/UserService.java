@@ -36,7 +36,7 @@ public interface UserService {
 
 	String delete_role(String json);
 
-	String get_all_role(String json);
+	String get_all_role();
 
 	String crud_usermanagement(String json);
 

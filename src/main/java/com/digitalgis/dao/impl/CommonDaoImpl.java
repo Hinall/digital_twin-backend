@@ -238,6 +238,20 @@ public class CommonDaoImpl extends JdbcDaoSupport implements CommonDao {
 			return null;
 		}
 	}
+	
+	@Override
+	public String getStateDetailByID(String json) throws JSONException {
+		String result;
+		try {
+			result = jdbcTemplate.queryForObject(SPUtility.FN_get_State_Detail_By_ID, new Object[] { json },
+					String.class);
+			return result;
+		} catch (Exception e) {
+			LoggerUtil.setError(this.getClass(), "Error in add_bookmark ");
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 
 }

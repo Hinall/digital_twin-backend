@@ -287,9 +287,9 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 	}
 
 	@Override
-	public String get_all_role(String json) {
+	public String get_all_role( ) {
 		try {
-			return jdbcTemplate.queryForObject(SPUtility.FN_WEB_GET_ALL_ROLE, new Object[] { json },
+			return jdbcTemplate.queryForObject(SPUtility.FN_WEB_GET_ALL_ROLE, new Object[] {  },
 					String.class);
 		} catch (Exception e) {
 			LoggerUtil.setError(this.getClass(), "Error in UserDaoImpl ::  get_all_role()");

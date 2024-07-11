@@ -38,4 +38,6 @@ public interface CommonService {
 
 	String getInformationofLayer(String json) throws JSONException;
 
+	String getStateDetailByID(String json);
+
 }

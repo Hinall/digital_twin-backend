@@ -38,4 +38,6 @@ public interface CommonDao {
 
 	String getInformationofLayer(String json) throws JSONException;
 
+	String getStateDetailByID(String json);
+
 }

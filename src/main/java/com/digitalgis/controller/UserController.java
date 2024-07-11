@@ -560,11 +560,11 @@ public class UserController {
 		}
 	}
 
-	@RequestMapping(value = "/get_all_role", method = RequestMethod.POST, produces = "application/json")
-	public ResponseEntity<?> get_all_role(@RequestBody String json) {
+	@RequestMapping(value = "/get_all_role", method = RequestMethod.GET, produces = "application/json")
+	public ResponseEntity<?> get_all_role() {
 		String resultObj = null;
 		try {
-			resultObj = userService.get_all_role(json);
+			resultObj = userService.get_all_role();
 			return ResponseEntity.ok(resultObj.toString());
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -60,5 +60,7 @@ public interface PropertySurveyService {
 	String gridDataByWardId(String wardId);
 
 	String getUrl(String Json);
+
+	String getStateDetails(String json);
 	
 }

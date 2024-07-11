@@ -61,4 +61,6 @@ public interface PropertySurveyDao {
 
 	String getUrl(String Json);
 
+	String getStateDetails(String json);
+
 }

@@ -399,17 +399,25 @@ public class PropertySurveyDaoImpl extends JdbcDaoSupport implements PropertySur
 	}
 	
 	@Override
-	public String getUrl(String Json) {
+	public String getStateDetails(String json) {
 		String result;
 		try {
-			result = jdbcTemplate.queryForObject(SPUtility.FN_GET_URL, new Object[] {Json},
+
+			
+			result = jdbcTemplate.queryForObject(SPUtility.FN_GET_STATE_DETAILS, new Object[] {json},
 					String.class);
 			return result;
 		} catch (Exception e) {
-			LoggerUtil.setError(this.getClass(), "Error in PropertySurveyDaoImpl :: getUrl()");
+			LoggerUtil.setError(this.getClass(), "Error in PropertySurveyDaoImpl :: getStateDetails()");
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public String getUrl(String Json) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
